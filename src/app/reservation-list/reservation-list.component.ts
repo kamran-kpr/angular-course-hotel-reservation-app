@@ -10,20 +10,18 @@ import { HomeComponent } from '../home/home.component';
   templateUrl: './reservation-list.component.html',
   styleUrls: ['./reservation-list.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule, HomeComponent]
+  imports: [CommonModule, RouterModule, HomeComponent],
 })
 export class ReservationListComponent implements OnInit {
-
   reservations: Reservation[] = [];
 
-  constructor(private reservationService: ReservationService){}
+  constructor(private reservationService: ReservationService) {}
 
   ngOnInit(): void {
     this.reservations = this.reservationService.getReservations();
   }
 
-  deleteReservation(id: string){
+  deleteReservation(id: string) {
     this.reservationService.deleteReservation(id);
   }
-
 }
